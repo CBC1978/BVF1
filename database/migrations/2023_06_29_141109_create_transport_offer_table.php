@@ -18,11 +18,7 @@ return new class extends Migration
         $table->decimal('price', 8, 2);
         $table->string('status');
         $table->timestamps();
-
-       
         $table->foreign('fk_freight_announcement_id')->references('id')->on('freight_announcement')->onDelete('cascade');
-
-        
         $table->foreign('fk_carrier_id')->references('id')->on('carrier')->onDelete('cascade');
     });
 }

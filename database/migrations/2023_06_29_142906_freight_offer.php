@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('freight_offer', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('fk_transport_annoucement_id');
+            $table->unsignedBigInteger('fk_transport_announcement_id');
             $table->unsignedBigInteger('fk_shipper_id');
             $table->float('price');
             $table->float('weight');
             $table->text('description');
             $table->string('statut');
-            $table->foreign('fk_transport_annoucement_id')->references('id')->on('transport_annoucement')->onDelete('cascade');
+            $table->foreign('fk_transport_announcement_id')->references('id')->on('transport_announcement')->onDelete('cascade');
             $table->foreign('fk_shipper_id')->references('id')->on('shipper')->onDelete('cascade');
             $table->timestamps();
         });

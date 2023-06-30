@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transport_annoucement', function (Blueprint $table) {
+        Schema::create('transport_announcement', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('fk_carrier_id');
             $table->string('origin');
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transport_annoucement');
+        Schema::dropIfExists('transport_announcement');
     }
 };
