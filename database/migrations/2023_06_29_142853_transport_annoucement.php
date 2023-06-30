@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('transport_announcement', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('fk_carrier_id');
+           
             $table->string('origin');
             $table->string('destination');
             $table->timestamp('limit_date');
             $table->string('vehicule_type');
             $table->float('weight');
             $table->text('description');
-            $table->foreign('fk_carrier_id')->references('id')->on('carrier')->onDelete('cascade');
+           
             $table->timestamps();
         });
     }

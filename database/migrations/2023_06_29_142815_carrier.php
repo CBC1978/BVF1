@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('carrier', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('fk_user_id');
+           
             $table->string('company_name');
             $table->string('adresse');
             $table->string('phone');
-            $table->foreign('fk_user_id')->references('id')->on('users')->onDelete('cascade');
+           
             $table->timestamps();
         });
     }

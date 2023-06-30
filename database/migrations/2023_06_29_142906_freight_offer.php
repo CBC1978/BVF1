@@ -19,8 +19,7 @@ return new class extends Migration
             $table->float('weight');
             $table->text('description');
             $table->string('statut');
-            $table->foreign('fk_transport_announcement_id')->references('id')->on('transport_announcement')->onDelete('cascade');
-            $table->foreign('fk_shipper_id')->references('id')->on('shipper')->onDelete('cascade');
+           
             $table->timestamps();
         });
     }
