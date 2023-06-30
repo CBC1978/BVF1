@@ -13,8 +13,8 @@ return new class extends Migration
 {
     Schema::create('contract', function (Blueprint $table) {
         $table->id();
-        $table->unsignedBigInteger('freight_announcement_id');
-        $table->unsignedBigInteger('transport_offer_id');
+        $table->unsignedBigInteger('fk_freight_announcement_id');
+        $table->unsignedBigInteger('fk_transport_offer_id');
         $table->timestamp('agreement_date')->nullable();
         $table->timestamps();
 
