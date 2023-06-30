@@ -33,7 +33,7 @@ class Shipper extends Model
         'company_name',
         'address',
         'phone',
-        'created_at',
+        
     ];
 
     /**
