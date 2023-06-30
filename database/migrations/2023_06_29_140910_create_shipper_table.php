@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('company_name');
             $table->string('address');
             $table->string('phone');
-            $table->timestamp('created_at')->nullable();
             $table->timestamps();
     
             
