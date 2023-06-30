@@ -13,14 +13,11 @@ return new class extends Migration
 {
     Schema::create('contract', function (Blueprint $table) {
         $table->id();
-        $table->unsignedBigInteger('fk_freight_announcement_id');
-        $table->unsignedBigInteger('fk_transport_offer_id');
+       
         $table->timestamp('agreement_date')->nullable();
         $table->timestamps();
 
-        $table->foreign('fk_freight_announcement_id')->references('id')->on('freight_announcement')->onDelete('cascade');
-
-        $table->foreign('fk_transport_offer_id')->references('id')->on('transport_offer')->onDelete('cascade');
+       
     });
 }
 
