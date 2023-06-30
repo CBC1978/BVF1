@@ -11,7 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('comment', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('fk_contract_id');
+            $table->float('mark');
+            $table->text('comment');
+            $table->foreign('fk_contract_id')->references('id')->on('contract')->onDelete('cascade');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('comment');
     }
 };
