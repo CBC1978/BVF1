@@ -13,7 +13,7 @@ return new class extends Migration
 {
     Schema::create('freight_announcement', function (Blueprint $table) {
         $table->id();
-        $table->unsignedBigInteger('shipper_id');
+        $table->unsignedBigInteger('fk_shipper_id');
         $table->string('origin');
         $table->string('destination');
         $table->timestamp('limit_date');
@@ -23,7 +23,7 @@ return new class extends Migration
         $table->timestamps();
 
         
-        $table->foreign('shipper_id')->references('id')->on('shipper')->onDelete('cascade');
+        $table->foreign('fk_shipper_id')->references('id')->on('shipper')->onDelete('cascade');
     });
 }
 

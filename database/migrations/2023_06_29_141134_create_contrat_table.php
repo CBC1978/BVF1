@@ -18,9 +18,9 @@ return new class extends Migration
         $table->timestamp('agreement_date')->nullable();
         $table->timestamps();
 
-        $table->foreign('freight_announcement_id')->references('id')->on('freight_announcement')->onDelete('cascade');
+        $table->foreign('fk_freight_announcement_id')->references('id')->on('freight_announcement')->onDelete('cascade');
 
-        $table->foreign('transport_offer_id')->references('id')->on('transport_offer')->onDelete('cascade');
+        $table->foreign('fk_transport_offer_id')->references('id')->on('transport_offer')->onDelete('cascade');
     });
 }
 
