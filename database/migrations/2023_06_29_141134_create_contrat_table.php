@@ -10,12 +10,20 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('contrat', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+{
+    Schema::create('contract', function (Blueprint $table) {
+        $table->id();
+        $table->unsignedBigInteger('freight_announcement_id');
+        $table->unsignedBigInteger('transport_offer_id');
+        $table->timestamp('agreement_date')->nullable();
+        $table->timestamps();
+
+        $table->foreign('freight_announcement_id')->references('id')->on('freight_announcement')->onDelete('cascade');
+
+        $table->foreign('transport_offer_id')->references('id')->on('transport_offer')->onDelete('cascade');
+    });
+}
+
 
     /**
      * Reverse the migrations.
