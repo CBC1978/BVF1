@@ -47,7 +47,7 @@ return new class extends Migration
     
     
         Schema::table('contract', function (Blueprint $table) {
-            $table->unsignedBigInteger('fk_freight_announcement_id');
+            $table->unsignedBigInteger('fk_freight_announcement_id');   
             $table->unsignedBigInteger('fk_transport_offer_id');
             $table->foreign('fk_freight_announcement_id')->references('id')->on('freight_announcement')->onDelete('cascade');
     

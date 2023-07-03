@@ -12,12 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('carrier', function (Blueprint $table) {
-            $table->id();
-           
+            $table->id(); 
             $table->string('company_name');
-            $table->string('adresse');
-            $table->string('phone');
-           
+            $table->string('address');
+            $table->string('phone');  
             $table->timestamps();
         });
     }
