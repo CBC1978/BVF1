@@ -43,7 +43,7 @@ class Contract extends Model
     }
 
     /**
-     * Get the transport offer 
+     * Get the transport offer  
      */
     public function transportOffer()
     {

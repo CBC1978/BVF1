@@ -10,7 +10,7 @@ class TransportAnnouncement extends Model
     use HasFactory;
 
     /**
-     * The attributes that are mass assignable.
+     * 1 The attributes that are mass assignable.
      *
      * @var array<int, string>
      */

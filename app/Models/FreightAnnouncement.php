@@ -24,7 +24,7 @@ class FreightAnnouncement extends Model
     protected $primaryKey = 'id';
 
     /**
-     * The attributes that are mass assignable.
+     *1 The attributes that are mass assignable.
      *
      * @var array
      */

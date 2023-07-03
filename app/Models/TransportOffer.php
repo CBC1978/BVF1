@@ -10,7 +10,7 @@ class TransportOffer extends Model
     use HasFactory;
 
     /**
-     * The table associated with the model.
+     * 1The table associated with the model.
      *
      *
       * @var string

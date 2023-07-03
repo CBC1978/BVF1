@@ -10,7 +10,7 @@ class Shipper extends Model
     use HasFactory;
 
     /**
-     * The table associated with the model.
+     * The table associated with the model
      *
      * @var string
      */
