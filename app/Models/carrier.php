@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Carrier;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -30,7 +29,7 @@ class Carrier extends Model
     protected $fillable = [
         'fk_user_id',
         'company_name',
-        'adress',
+        'address',
         'phone',
     ];
 }

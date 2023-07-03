@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CarrierFormRequest;
 use App\Models\Carrier;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Http\Request;
 
 class CarrierController extends Controller
 {
@@ -16,7 +18,7 @@ class CarrierController extends Controller
             $search = $request->input('search');
 
             if ($search){
-                $query->whereRaw("name LIKE '%".$search."%'");
+                $query->whereRaw("company_name LIKE '%".$search."%'");
             }
             $total = $query->count();
 
@@ -33,13 +35,31 @@ class CarrierController extends Controller
         }
     }
 
+    public function get(CarrierFormRequest $request,  $id){
+
+        $carrier = Carrier::find($id);
+        if ($carrier){
+            return response()->json([
+                "status_code"=>200,
+                "status_message"=>" Le transporteur existe",
+                "carrier"=>$carrier,
+            ]);
+        }else{
+            return response()->json([
+                "status_code"=>400,
+                "status_message"=>" Aucun transporteur ne correspond",
+            ]);
+        }
+    }
+
     public function store(CarrierFormRequest $request){
         try {
             $carrier = new Carrier();
-            $carrier->company_name = $request->company_name;
-            $carrier->adress = $request->adress;
-            $carrier->phone = $request->phone;
-            $carrier->fk_user_id = $request->fk_user_id;
+            $carrier->company_name =  $request->company_name;
+//            $carrier->company_name = $request->company_name;
+//            $carrier->address = $request->address;
+//            $carrier->phone = $request->phone;
+//            $carrier->fk_user_id = $request->fk_user_id;
 
             $carrier->save();
 
@@ -48,8 +68,8 @@ class CarrierController extends Controller
                 "status_message"=>" Le transporteur est créé",
                 "data"=>$carrier
             ]);
-        }catch (\Exception $e){
-            return response()->json($e);
+        }catch (HttpResponseException $e){
+            return response()->json('test');
         }
     }
 
