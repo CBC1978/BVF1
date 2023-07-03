@@ -1,8 +1,9 @@
 <?php
 
 namespace Database\Seeders;
+
+use App\Models\ContractTransport;
 use Illuminate\Database\Seeder;
-use App\Models\Contract;
 
 class ContractsTableSeeder extends Seeder
 {
@@ -13,11 +14,13 @@ class ContractsTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 5; $i <= 10; $i++) {
-            Contract::create([
-                'fk_freight_announcement_id' => $i,
-                'fk_transport_offer_id' => $i,
-                'agreement_date' => now()->subDays(rand(1, 30)),
+
+//        ContractTransport::factory()->count(10);
+        for ($i = 1; $i <= 7; $i++) {
+            ContractTransport::create([
+                'fk_freight_offer_id' => 17,
+                'fk_transport_offer_id' => 1,
+                'agreement_date' => now(),
                 'created_at' => now(),
                 'updated_at' => now()
             ]);

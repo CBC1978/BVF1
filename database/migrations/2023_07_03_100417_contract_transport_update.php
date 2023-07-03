@@ -10,23 +10,18 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-{
-    Schema::create('transport_offer', function (Blueprint $table) {
-        $table->id();
-
-        $table->decimal('price', 8, 2);
-        $table->string('status');
-        $table->timestamps();
-
-    });
-}
-
+    {
+        Schema::drop('comment');
+        Schema::drop('contract_transport');
+    }
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('transport_offer');
+        Schema::table('contract_transport', function (Blueprint $table) {
+            $table->dropColumn( 'fk_freight_offert_id');
+        });
     }
 };

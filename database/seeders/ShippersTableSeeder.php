@@ -13,7 +13,7 @@ class ShippersTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 13; $i <= 23; $i++) {
             Shipper::create([
                 'fk_user_id' => $i,
                 'company_name' => 'Company ' . $i,
@@ -23,8 +23,7 @@ class ShippersTableSeeder extends Seeder
                 'updated_at' => now()
             ]);
         }
-    
+
         $this->command->info('Seeder "ShippersTableSeeder" exécuté avec succès!');
     }
 }
-    

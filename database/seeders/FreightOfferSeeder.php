@@ -11,12 +11,14 @@ class FreightOfferSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 4; $i <= 10; $i++) {
+        for ($i = 1; $i <= 7; $i++) {
             FreightOffer::create([
-                'fk_freight_announcement_id' => $i,
-                'fk_carrier_id' => $i,
+                'fk_transport_announcement_id' => $i,
+                'fk_shipper_id' => $i,
                 'price' => 100.00,
-                'status' => 'Pending',
+                'weight' => 20,
+                'description' => "description ".$i,
+                'statut' => 'Pending',
             ]);
         }
 

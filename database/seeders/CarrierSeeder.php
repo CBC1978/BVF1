@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\Carrier; 
+use App\Models\Carrier;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,7 +13,7 @@ class CarrierSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 13; $i <= 23; $i++) {
             Carrier::create([
                 'fk_user_id' => $i,
                 'company_name' => 'Company ' . $i,
@@ -23,7 +23,7 @@ class CarrierSeeder extends Seeder
                 'updated_at' => now()
             ]);
         }
-        
+
 
         $this->command->info('Seeder "CarrierSeeder" exécuté avec succès!');
     }

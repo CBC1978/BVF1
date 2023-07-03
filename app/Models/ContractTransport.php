@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class comment extends Model
+class ContractTransport extends Model
 {
     use HasFactory;
     /**
@@ -13,7 +13,7 @@ class comment extends Model
      *
      * @var string
      */
-    protected $table = 'comment';
+    protected $table = 'contract_transport';
 
     /**
      * The primary key associated with the table.
@@ -28,8 +28,10 @@ class comment extends Model
      * @var array
      */
     protected $fillable = [
-        'mark',
-        'comment',
-        'fk_contract_transport_id',
+        'agreement_date',
+        'fk_freight_offert_id',
+        'fk_transport_offer_id',
+
     ];
+
 }
