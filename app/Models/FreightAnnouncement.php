@@ -2,19 +2,19 @@
 
 namespace App\Models;
 
-use App\Models\Carrier;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Carrier extends Model
+class FreightAnnouncement extends Model
 {
     use HasFactory;
-   /**
+
+    /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'carrier';
+    protected $table = 'freight_announcement';
 
     /**
      * The primary key associated with the table.
@@ -22,15 +22,28 @@ class Carrier extends Model
      * @var string
      */
     protected $primaryKey = 'id';
+
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var array
      */
     protected $fillable = [
-        'fk_user_id',
-        'company_name',
-        'adress',
-        'phone',
+        'fk_shipper_id',
+        'origin',
+        'destination',
+        'limit_date',
+        'weight',
+        'volume',
+        'description',
     ];
+
+    /**
+     * Get the shipper for freight announcement.
+     */
+    public function shipper()
+    {
+        return $this->belongsTo(Shipper::class, 'fk_shipper_id');
+    }
 }
+

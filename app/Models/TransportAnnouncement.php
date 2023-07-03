@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class transport_annoucement extends Model
+class TransportAnnouncement extends Model
 {
     use HasFactory;
 
@@ -14,8 +14,10 @@ class transport_annoucement extends Model
      *
      * @var array<int, string>
      */
+    protected $table = 'transport_announcement';
+
     protected $fillable = [
-        'carrier_id',
+        'fk_carrier_id',
         'origin',
         'destination',
         'limit_date',
