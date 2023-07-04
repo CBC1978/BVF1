@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\TransportAnnouncememt;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class CarrierEditRequest extends FormRequest
+class TransportAnnouncementFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,11 @@ class CarrierEditRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "company_name" => "required",
+            "origin" => "required",
+            "destination"=> "required",
+            "limit_date"=> 'required',
         ];
     }
-
     public function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(response()->json([
@@ -41,7 +42,9 @@ class CarrierEditRequest extends FormRequest
     public function messages()
     {
         return[
-            'company_name.required' => "Le nom de l'entreprise est obligatoire",
+            'origin.required' => "Le lieu de départ est obligatoire",
+            'destination.required' => "Le lieu d'arrivée est obligatoire",
+            'limit_date.required' => "Le delai d'expiratopn est obligatoire"
         ];
     }
 }

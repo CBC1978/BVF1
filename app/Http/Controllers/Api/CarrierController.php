@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CarrierEditRequest;
-use App\Http\Requests\CarrierFormRequest;
+use App\Http\Requests\Carrier\CarrierEditRequest;
+use App\Http\Requests\Carrier\CarrierFormRequest;
 use App\Models\Carrier;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Request;

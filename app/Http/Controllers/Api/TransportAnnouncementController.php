@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\TransportAnnouncementFormRequest;
+use App\Http\Requests\TransportAnnouncememt\TransportAnnouncementFormRequest;
 use App\Models\TransportAnnouncement;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Request;

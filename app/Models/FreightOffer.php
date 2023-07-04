@@ -24,10 +24,11 @@ class FreightOffer extends Model
 
 
     protected $fillable = [
-        'transport_annoucement_id',
+        'fk_transport_announcement_id',
+        'fk_shipper_id',
         'price',
         'weight',
         'description',
-        'status',
+        'statut',
     ];
 }
