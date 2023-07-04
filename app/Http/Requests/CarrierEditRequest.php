@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class CarrierFormRequest extends FormRequest
+class CarrierEditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,6 @@ class CarrierFormRequest extends FormRequest
     {
         return [
             "company_name" => "required",
-            "address"=> "required",
-            "phone"=> 'required',
         ];
     }
 
@@ -44,8 +42,6 @@ class CarrierFormRequest extends FormRequest
     {
         return[
             'company_name.required' => "Le nom de l'entreprise est obligatoire",
-            'address.required' => "L'adresse de l'entreprise est obligatoire",
-            'phone.required' => "Le contact de l'entreprise est obligatoire"
         ];
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CarrierEditRequest;
 use App\Http\Requests\CarrierFormRequest;
 use App\Models\Carrier;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -35,7 +36,7 @@ class CarrierController extends Controller
         }
     }
 
-    public function get(CarrierFormRequest $request,  $id){
+    public function get($id){
 
         $carrier = Carrier::find($id);
         if ($carrier){
@@ -53,13 +54,14 @@ class CarrierController extends Controller
     }
 
     public function store(CarrierFormRequest $request){
+
         try {
             $carrier = new Carrier();
-            $carrier->company_name =  $request->company_name;
-//            $carrier->company_name = $request->company_name;
-//            $carrier->address = $request->address;
-//            $carrier->phone = $request->phone;
-//            $carrier->fk_user_id = $request->fk_user_id;
+            $carrier->company_name = 'test';
+            $carrier->company_name = $request->company_name;
+            $carrier->address = $request->address;
+            $carrier->phone = $request->phone;
+            $carrier->fk_user_id = $request->fk_user_id;
 
             $carrier->save();
 
@@ -69,15 +71,16 @@ class CarrierController extends Controller
                 "data"=>$carrier
             ]);
         }catch (HttpResponseException $e){
-            return response()->json('test');
+            return response()->json($e);
         }
     }
 
-    public function update(CarrierFormRequest $request, Carrier $carrier)
+    public function update(CarrierEditRequest $request,  $id)
     {
+        $carrier = Carrier::find($id);
         try {
             $carrier->company_name = $request->company_name;
-            $carrier->adress = $request->adress;
+            $carrier->address = $request->address;
             $carrier->phone = $request->phone;
 
             $carrier->save();

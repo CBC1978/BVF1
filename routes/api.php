@@ -16,10 +16,10 @@
     */
 //Route for Carrier API
 Route::get('carriers', [CarrierController::class, 'index']);
-Route::get('carrier/{id}', [CarrierController::class, 'get'])->where('id', '[0-9]+');
-Route::post('carrier/create', [CarrierController::class, 'store']);
-Route::put('carrier/edit/{id}', [CarrierController::class, 'update']);
-Route::delete('carrier/{id}', [CarrierController::class, 'delete']);
+Route::get('carriers/get/{id}', [CarrierController::class, 'get'])->where('id', '[0-9]+');
+Route::post('carriers/create', [CarrierController::class, 'store']);
+Route::put('carriers/edit/{id}', [CarrierController::class, 'update']);
+Route::delete('carriers/{id}', [CarrierController::class, 'delete']);
 
 
 //Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
