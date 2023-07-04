@@ -71,7 +71,7 @@ class FreightOfferController extends Controller
 
             return response()->json([
                 "status_code" => 200,
-                "status_message" => " L'ofrret de fret est créé",
+                "status_message" => " L'offret de fret est créé",
                 "data" => $freightOffer
             ]);
         }catch (HttpResponseException $e){
@@ -100,7 +100,6 @@ class FreightOfferController extends Controller
         }catch (HttpResponseException $e){
             return response()->json($e);
         }
-
     }
 
     public function delete(FreightOffer $freightOffer)

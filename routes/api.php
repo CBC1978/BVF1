@@ -3,6 +3,7 @@
     use App\Http\Controllers\Api\CarrierController;
     use App\Http\Controllers\Api\TransportAnnouncementController;
     use App\Http\Controllers\Api\FreightOfferController;
+    use App\Http\Controllers\Api\CommentController;
     use Illuminate\Support\Facades\Route;
 
     /*
@@ -35,6 +36,13 @@ Route::get('freight_offers/{id}', [FreightOfferController::class, 'get'])->where
 Route::post('freight_offers/create', [FreightOfferController::class, 'store']);
 Route::put('freight_offers/edit/{id}', [FreightOfferController::class, 'update']);
 Route::delete('freight_offers/{id}', [FreightOfferController::class, 'delete']);
+
+//Route for Comment API
+Route::get('comments', [CommentController::class, 'index']);
+Route::get('comments/{id}', [CommentController::class, 'get'])->where('id', '[0-9]+');
+Route::post('comments/create', [CommentController::class, 'store']);
+Route::put('comments/edit/{id}', [CommentController::class, 'update']);
+Route::delete('comments/{id}', [CommentController::class, 'delete']);
 
 //Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //    return $request->user();
