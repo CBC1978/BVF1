@@ -57,7 +57,6 @@ class CarrierController extends Controller
 
         try {
             $carrier = new Carrier();
-            $carrier->company_name = 'test';
             $carrier->company_name = $request->company_name;
             $carrier->address = $request->address;
             $carrier->phone = $request->phone;
