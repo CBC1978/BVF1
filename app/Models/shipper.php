@@ -39,7 +39,7 @@ class Shipper extends Model
     /**
      * Get the user of the shipper.
      */
-    public function user()
+    public function Users()
     {
         return $this->belongsTo(User::class, 'fk_user_id');
     }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Comment\CommentFormRequest;
-use App\Models\comment;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
@@ -13,7 +13,7 @@ class CommentController extends Controller
     public function index(Request $request)
     {
         try {
-            $query = comment::query();
+            $query = Comment::query();
             $perPage = 10;
             $page = $request->input('page', 1);
             $search = $request->input('search');
@@ -39,7 +39,7 @@ class CommentController extends Controller
 
     public function get($id)
     {
-        $comment = comment::find($id);
+        $comment = Comment::find($id);
         if ($comment) {
             return response()->json([
                 "status_code" => 200,
@@ -57,7 +57,7 @@ class CommentController extends Controller
     public function store(CommentFormRequest $request)
     {
         try {
-            $comment = new comment();
+            $comment = new Comment();
             $comment->mark = $request->mark;
             $comment->comment = $request->comment;
             $comment->fk_contract_transport_id = $request->fk_contract_transport_id;
@@ -74,7 +74,7 @@ class CommentController extends Controller
         }
     }
 
-    public function update(CommentFormRequest $request, comment $comment)
+    public function update(CommentFormRequest $request, Comment $comment)
     {
         try
         {
@@ -94,7 +94,7 @@ class CommentController extends Controller
         }
     }
 
-    public function delete(comment $comment)
+    public function delete(Comment $comment)
     {
         try {
             $comment->delete();

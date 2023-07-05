@@ -41,7 +41,7 @@ class FreightAnnouncement extends Model
     /**
      * Get the shipper for freight announcement.
      */
-    public function shipper()
+    public function Shipper()
     {
         return $this->belongsTo(Shipper::class, 'fk_shipper_id');
     }

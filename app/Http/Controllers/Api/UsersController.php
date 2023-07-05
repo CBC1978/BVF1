@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Users\UsersFormRequest;
-use App\Models\User;
+use App\Models\Users;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -14,7 +14,7 @@ class UsersController extends Controller
     public function index(Request $request)
     {
         try {
-            $query = User::query();
+            $query = Users::query();
             $perPage = 10;
             $page = $request->input('page', 1);
             $search = $request->input('search');
@@ -43,7 +43,7 @@ class UsersController extends Controller
 
     public function get($id)
     {
-        $user = User::find($id);
+        $user = Users::find($id);
         if ($user) {
             return response()->json([
                 "status_code" => 200,
@@ -61,7 +61,7 @@ class UsersController extends Controller
     public function store(UsersFormRequest $request)
     {
         try {
-            $user = new User();
+            $user = new Users();
             $user->name = $request->name;
             $user->first_name = $request->first_name;
             $user->user_phone = $request->user_phone;
@@ -105,7 +105,7 @@ class UsersController extends Controller
         }
     }
 
-    public function delete(User $user)
+    public function delete(Users $user)
     {
         try {
             $user->delete();

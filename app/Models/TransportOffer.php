@@ -34,7 +34,7 @@ class TransportOffer extends Model
     /**
      * Get the freight announcement associated with the transport offer.
      */
-    public function freightAnnouncement()
+    public function FreightAnnouncement()
     {
         return $this->belongsTo(FreightAnnouncement::class, 'fk_freight_announcement_id');
     }
@@ -42,7 +42,7 @@ class TransportOffer extends Model
     /**
      * Get the carrier associated with the transport offer.
      */
-    public function carrier()
+    public function Carrier()
     {
         return $this->belongsTo(Carrier::class, 'fk_carrier_id');
     }
