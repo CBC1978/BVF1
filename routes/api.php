@@ -4,6 +4,12 @@
     use App\Http\Controllers\Api\TransportAnnouncementController;
     use App\Http\Controllers\Api\FreightOfferController;
     use App\Http\Controllers\Api\CommentController;
+    use App\Http\Controllers\Api\ShipperController;
+    use App\Http\Controllers\Api\FreightAnnouncementController;
+    use App\Http\Controllers\Api\TransportOfferController;
+    use App\Http\Controllers\Api\ContractTransportController;
+    use App\Http\Controllers\Api\UserController;
+    
     use Illuminate\Support\Facades\Route;
 
     /*
@@ -43,6 +49,42 @@ Route::get('comments/{id}', [CommentController::class, 'get'])->where('id', '[0-
 Route::post('comments/create', [CommentController::class, 'store']);
 Route::put('comments/edit/{id}', [CommentController::class, 'update']);
 Route::delete('comments/{id}', [CommentController::class, 'delete']);
+
+// Routes for Shipper API
+Route::get('shippers', [ShipperController::class, 'index']);
+Route::get('shippers/{id}', [ShipperController::class, 'get'])->where('id', '[0-9]+');
+Route::post('shippers/create', [ShipperController::class, 'store']);
+Route::put('shippers/edit/{id}', [ShipperController::class, 'update']);
+Route::delete('shippers/{id}', [ShipperController::class, 'delete']);
+
+// Routes for FreightAnnouncement API
+Route::get('freight_announcements', [FreightAnnouncementController::class, 'index']);
+Route::get('freight_announcements/{id}', [FreightAnnouncementController::class, 'get'])->where('id', '[0-9]+');
+Route::post('freight_announcements/create', [FreightAnnouncementController::class, 'store']);
+Route::put('freight_announcements/edit/{id}', [FreightAnnouncementController::class, 'update']);
+Route::delete('freight_announcements/{id}', [FreightAnnouncementController::class, 'delete']);
+
+// Routes for TransportOffer API
+Route::get('transport_offers', [TransportOfferController::class, 'index']);
+Route::get('transport_offers/{id}', [TransportOfferController::class, 'get'])->where('id', '[0-9]+');
+Route::post('transport_offers/create', [TransportOfferController::class, 'store']);
+Route::put('transport_offers/edit/{id}', [TransportOfferController::class, 'update']);
+Route::delete('transport_offers/{id}', [TransportOfferController::class, 'delete']);
+
+// Routes for ContractTransport API
+Route::get('contract_transports', [ContractTransportController::class, 'index']);
+Route::get('contract_transports/{id}', [ContractTransportController::class, 'get'])->where('id', '[0-9]+');
+Route::post('contract_transports/create', [ContractTransportController::class, 'store']);
+Route::put('contract_transports/edit/{id}', [ContractTransportController::class, 'update']);
+Route::delete('contract_transports/{id}', [ContractTransportController::class, 'delete']);
+
+// Routes for Users API
+Route::get('users', [UserController::class, 'index']);
+Route::get('users/{id}', [UserController::class, 'get'])->where('id', '[0-9]+');
+Route::post('users/create', [UserController::class, 'store']);
+Route::put('users/edit/{id}', [UserController::class, 'update']);
+Route::delete('users/{id}', [UserController::class, 'delete']);
+
 
 //Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //    return $request->user();
