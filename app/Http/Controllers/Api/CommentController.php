@@ -20,7 +20,7 @@ class CommentController extends Controller
 
             if ($search) {
                 $query->whereRaw("mark LIKE '%" . $search . "%'")
-                    ->orWhereRaw("comment LIKE '%" . $search . "%'");
+                      ->orWhereRaw("comment LIKE '%" . $search . "%'");
             }
             $total = $query->count();
 

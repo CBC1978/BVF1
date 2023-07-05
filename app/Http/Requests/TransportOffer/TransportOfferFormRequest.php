@@ -23,8 +23,8 @@ class TransportOfferFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'fk_freight_announcement_id' => 'required|exists:freight_announcements,id',
-            'fk_carrier_id' => 'required|exists:carriers,id',
+            'fk_freight_announcement_id' => 'required|exists:freight_announcement,id',
+            'fk_carrier_id' => 'required|exists:carrier,id',
             'price' => 'required',
             'status' => 'required',
         ];

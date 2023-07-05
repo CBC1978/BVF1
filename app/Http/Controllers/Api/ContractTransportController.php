@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ContractTransport\ContractTransportFormRequest;
 use App\Models\ContractTransport;
@@ -111,4 +110,5 @@ class ContractTransportController extends Controller
             return response()->json($e);
         }
     }
+
 }
