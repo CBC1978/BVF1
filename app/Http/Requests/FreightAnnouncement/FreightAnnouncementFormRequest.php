@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\FreightAnnouncememt;
-
+namespace App\Http\Requests\FreightAnnouncement;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+
 
 class FreightAnnouncementFormRequest extends FormRequest
 {
@@ -48,4 +48,5 @@ class FreightAnnouncementFormRequest extends FormRequest
             'limit_date.required' => "La date limite est obligatoire",
         ];
     }
+
 }
