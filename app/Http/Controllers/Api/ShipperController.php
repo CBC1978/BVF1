@@ -27,7 +27,7 @@ class ShipperController extends Controller
             $result = $query->offset(($page - 1) * $perPage)->limit($perPage)->get();
             return response()->json([
                 "status_code" => 200,
-                "status_message" => "Tous les expéditeurs sont récupérés",
+                "status_message" => "Tous leChargeurs sont récupérés",
                 "current_page" => $page,
                 "last_page" => ceil($total / $perPage),
                 "items" => $result,
@@ -43,13 +43,13 @@ class ShipperController extends Controller
         if ($shipper) {
             return response()->json([
                 "status_code" => 200,
-                "status_message" => "L'expéditeur existe",
+                "status_message" => "Chargeur existe",
                 "shipper" => $shipper,
             ]);
         } else {
             return response()->json([
                 "status_code" => 400,
-                "status_message" => "Aucun expéditeur ne correspond",
+                "status_message" => "Aucun Chargeur ne correspond",
             ]);
         }
     }
@@ -67,7 +67,7 @@ class ShipperController extends Controller
 
             return response()->json([
                 "status_code" => 200,
-                "status_message" => "L'expéditeur est créé",
+                "status_message" => "Chargeur est créé",
                 "data" => $shipper
             ]);
         } catch (HttpResponseException $e) {
@@ -87,7 +87,7 @@ class ShipperController extends Controller
             $shipper->save();
             return response()->json([
                 "status_code" => 200,
-                "status_message" => "L'expéditeur est modifié",
+                "status_message" => "Chargeur est modifié",
                 "data" => $shipper
             ]);
         } catch (\Exception $e) {
@@ -101,7 +101,7 @@ class ShipperController extends Controller
             $shipper->delete();
             return response()->json([
                 "status_code" => 200,
-                "status_message" => "L'expéditeur est supprimé",
+                "status_message" => "Chargeur est supprimé",
                 "data" => $shipper
             ]);
         } catch (\Exception $e) {
