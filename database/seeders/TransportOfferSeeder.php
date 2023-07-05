@@ -15,7 +15,7 @@ class TransportOfferSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i <= 7; $i++) {
+        for ($i = 5; $i <= 7; $i++) {
             TransportOffer::create([
                 'fk_freight_announcement_id' => $i,
                 'fk_carrier_id' => $i,
