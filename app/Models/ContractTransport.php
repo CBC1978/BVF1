@@ -9,7 +9,7 @@ class ContractTransport extends Model
 {
     use HasFactory;
     /**
-     * The table associated with the model.
+     * The table associated with the models.
      *
      * @var string
      */
