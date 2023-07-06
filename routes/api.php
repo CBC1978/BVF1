@@ -10,44 +10,44 @@
     use App\Http\Controllers\Api\ContractTransportController;
     use App\Http\Controllers\Api\UsersController;
 
-    use Illuminate\Support\Facades\Route;
+    use Illuminate\Support\Facades\Api;
 
     /*
     |--------------------------------------------------------------------------
     | API Routes
     |--------------------------------------------------------------------------
     |
-    | Here is where you can register API routes for your application. These
-    | routes are loaded by the RouteServiceProvider and all of them will
+    | Here is where you can register API Routes for your application. These
+    | Routes are loaded by the RouteserviceProvider and all of them will
     | be assigned to the "api" middleware group. Make something great!
     |
     */
-    // Include Carrier API routes
-require __DIR__.'/Carrier/CarrierRoute.php';
+    // Include Carrier API Routes
+require __DIR__.'/Carrier/CarrierApi.php';
 
-// Include TransportAnnouncement API routes
-require __DIR__.'/TransportAnnouncement/TransportAnnouncementRoute.php';
-// Include FreightOffer API routes
-require __DIR__.'/FreightOffer/FreightOfferRoute.php';
+// Include TransportAnnouncement API Routes
+require __DIR__.'/TransportAnnouncement/TransportAnnouncementApi.php';
+// Include FreightOffer API Routes
+require __DIR__.'/FreightOffer/FreightOfferApi.php';
 
-// Include Comment API routes
-require __DIR__.'/Comment/CommentRoute.php';
+// Include Comment API Routes
+require __DIR__.'/Comment/CommentApi.php';
 
-// Include Shipper API routes
-require __DIR__.'/Shipper/ShipperRoute.php';
+// Include Shipper API Routes
+require __DIR__.'/Shipper/ShipperApi.php';
 
-// Include FreightAnnouncement API routes
-require __DIR__.'/FreightAnnouncement/FreightAnnouncementRoute.php';
+// Include FreightAnnouncement API Routes
+require __DIR__.'/FreightAnnouncement/FreightAnnouncementApi.php';
 
-// Include TransportOffer API routes
-require __DIR__.'/TransportOffer/TransportOfferRoute.php';
+// Include TransportOffer API Routes
+require __DIR__.'/TransportOffer/TransportOfferApi.php';
 
-// Include ContractTransport API routes
-require __DIR__.'/ContractTransport/ContractTransportRoute.php';
+// Include ContractTransport API Routes
+require __DIR__.'/ContractTransport/ContractTransportApi.php';
 
-// Include Users API routes
-require __DIR__.'/Users/UsersRoute.php';
+// Include Users API Routes
+require __DIR__.'/Users/UsersApi.php';
 
-//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//Api::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
