@@ -7,7 +7,6 @@
 <body>
 @include('layouts.modal')
 @include('layouts.navbars.head')
-
 @include('layouts.navbars.nav_mobile')
 <main class="main">
     @include('layouts.navbars.nav')
