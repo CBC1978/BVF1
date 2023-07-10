@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Livewire\Admin\Dashboards;
+use \App\Http\Livewire\Admin\Offer\AddOffer;
+use \App\Http\Livewire\Admin\Offer\Myoffers;
+use \App\Http\Livewire\Admin\Offer\OfferDetails;
+use \App\Http\Livewire\Admin\Offer\Offers;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', Dashboards::class)->name('dashboard');
+Route::get('/add_offer', AddOffer::class)->name('add_offer');
+Route::get('/myoffers', Myoffers::class)->name('myoffers');
+Route::get('/offer_details', OfferDetails::class)->name('offer_details');
+Route::get('/offers', Offers::class)->name('offers');
