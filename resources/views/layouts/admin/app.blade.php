@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-@include('layouts.navbars.headers')
+@include('layouts.admin.navbars.headers')
     @livewireStyles
 </head>
 <body>
-@include('layouts.modal')
-@include('layouts.navbars.head')
-@include('layouts.navbars.nav_mobile')
+@include('layouts.admin.modal')
+@include('layouts.admin.navbars.head')
+@include('layouts.admin.navbars.nav_mobile')
 <main class="main">
-    @include('layouts.navbars.nav')
+    @include('layouts.admin.navbars.nav')
     {{ $slot }}
 </main>
-@include('layouts.footers.footer')
-@include('layouts.footers.scripts')
+@include('layouts.admin.footers.footer')
+@include('layouts.admin.footers.scripts')
 @livewireScripts
 </body>
 </html>
