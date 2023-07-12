@@ -1,0 +1,1 @@
+<script src="{{asset('landing/js/script.js')}}"></script>

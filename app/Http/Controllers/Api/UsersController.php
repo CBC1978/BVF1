@@ -62,13 +62,13 @@ class UsersController extends Controller
     {
         try {
             $user = new Users();
-            $user->name = $request->name;
-            $user->first_name = $request->first_name;
-            $user->user_phone = $request->user_phone;
-            $user->email = $request->email;
-            $user->username = $request->username;
-            $user->password = Hash::make($request->password);
-            $user->role = $request->role;
+            $user->name = $request->input('name');
+            $user->first_name = $request->input('first_name');
+            $user->user_phone = $request->input('user_phone');
+            $user->email = $request->input('email');
+            $user->username = $request->input('username');
+            $user->password = Hash::make($request->input('password'));
+            $user->role = $request->input('role');
 
             $user->save();
 
@@ -77,21 +77,21 @@ class UsersController extends Controller
                 "status_message" => "L'utilisateur a été créé",
                 "data" => $user
             ]);
-        } catch (HttpResponseException $e) {
+        } catch (\Exception $e) {
             return response()->json($e);
         }
     }
 
-    public function update(UsersFormRequest $request, User $user)
+    public function update(UsersFormRequest $request, Users $user)
     {
         try {
-            $user->name = $request->name;
-            $user->first_name = $request->first_name;
-            $user->user_phone = $request->user_phone;
-            $user->email = $request->email;
-            $user->username = $request->username;
-            $user->password = Hash::make($request->password);
-            $user->role = $request->role;
+            $user->name = $request->input('name');
+            $user->first_name = $request->input('first_name');
+            $user->user_phone = $request->input('user_phone');
+            $user->email = $request->input('email');
+            $user->username = $request->input('username');
+            $user->password = Hash::make($request->input('password'));
+            $user->role = $request->input('role');
 
             $user->save();
             return response()->json([
@@ -100,7 +100,7 @@ class UsersController extends Controller
                 "data" => $user
             ]);
 
-        } catch (HttpResponseException $e) {
+        } catch (\Exception $e) {
             return response()->json($e);
         }
     }
@@ -113,9 +113,8 @@ class UsersController extends Controller
                 "status_code" => 200,
                 "status_message" => "L'utilisateur a été supprimé",
             ]);
-        } catch (HttpResponseException $e) {
+        } catch (\Exception $e) {
             return response()->json($e);
         }
     }
 }
-
