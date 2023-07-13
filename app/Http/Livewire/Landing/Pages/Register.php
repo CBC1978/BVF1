@@ -2,13 +2,14 @@
 
 namespace App\Http\Livewire\Landing\Pages;
 
-//  Use Models/Users;
-
-
+use App\Models\User;
+use App\Providers\User\UserService;
 use Livewire\Component;
 
 class Register extends Component
 {
+
+    private UserService $userService;
     public $name;
     public $first_name;
     public $user_phone;
@@ -28,19 +29,18 @@ class Register extends Component
         'role' => 'required',
     ];
 
+    public function boot( UserService $userService)
+    {
+        $this->userService = $userService;
+    }
+
     public function register()
     {
-        $this->validate();
+        $userData = $this->validate();
+       $message =  $this->userService->addUser($userData);
 
-        User::create([
-            'name' => $this->name,
-            'first_name' => $this->first_name,
-            'user_phone' => $this->user_phone,
-            'email' => $this->email,
-            'username' => $this->username,
-            'password' => Hash::make($this->password),
-            'role' => $this->role,
-        ]);
+       dd($message);
+
         session()->flash('success', 'Inscription réussie.');
 
         // $this->reset([
@@ -56,7 +56,7 @@ class Register extends Component
 
 
         // redirection apres inscription
-        return redirect()->route('dashboard');
+//        return redirect()->route('dashboard');
     }
 
     public function render()

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Users\UsersFormRequest;
-use App\Models\Users;
+use App\Models\User;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -58,17 +58,17 @@ class UsersController extends Controller
         }
     }
 
-    public function store(UsersFormRequest $request)
+    public function store($userRegister)
     {
         try {
-            $user = new Users();
-            $user->name = $request->input('name');
-            $user->first_name = $request->input('first_name');
-            $user->user_phone = $request->input('user_phone');
-            $user->email = $request->input('email');
-            $user->username = $request->input('username');
-            $user->password = Hash::make($request->input('password'));
-            $user->role = $request->input('role');
+            $user = new User();
+            $user->name = $userRegister['name'];
+            $user->first_name = $userRegister['first_name'];
+            $user->user_phone = $userRegister['user_phone'];
+            $user->email = $userRegister['email'];
+            $user->username = $userRegister['username'];
+            $user->password = Hash::make($userRegister['password']);
+            $user->role = $userRegister['role'];
 
             $user->save();
 
