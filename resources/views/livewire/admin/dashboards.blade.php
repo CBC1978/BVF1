@@ -35,7 +35,7 @@
                     <div class="row">
                         <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-4 col-sm-6">
                             <div class="card-style-1 hover-up">
-                                <div class="card-image"> <img src="assets/imgs/page/dashboard/computer.svg" alt="jobBox"></div>
+                                <div class="card-image"> <img src="{{ asset('assets/imgs/page/dashboard/computer.svg') }}" alt="jobBox"></div>
                                 <div class="card-info">
                                     <div class="card-title">
                                         <h3>1568<span class="font-sm status up">25<span>%</span></span>
@@ -109,7 +109,7 @@
                                                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12">
                                                     <div class="card-grid-2 hover-up">
                                                         <div class="card-grid-2-image-left"><span class="flash"></span>
-                                                            <div class="image-box"><img src="assets/imgs/brands/brand-1.png" alt="jobBox"></div>
+                                                            <div class="image-box"><img src="{{ asset('assets/imgs/brands/brand-1.png') }}" alt="jobBox"></div>
                                                             <div class="right-info"><a class="name-job" href="company-details.html">LinkedIn</a><span class="location-small">New York, US</span></div>
                                                         </div>
                                                         <div class="card-block-info">

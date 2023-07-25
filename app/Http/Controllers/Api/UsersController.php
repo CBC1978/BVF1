@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Users\UsersFormRequest;
-use App\Models\User;
+use App\Models\Users;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -58,17 +58,17 @@ class UsersController extends Controller
         }
     }
 
-    public function store($userRegister)
+    public function store(UsersFormRequest $request)
     {
         try {
-            $user = new User();
-            $user->name = $userRegister['name'];
-            $user->first_name = $userRegister['first_name'];
-            $user->user_phone = $userRegister['user_phone'];
-            $user->email = $userRegister['email'];
-            $user->username = $userRegister['username'];
-            $user->password = Hash::make($userRegister['password']);
-            $user->role = $userRegister['role'];
+            $user = new Users();
+            $user->name = $request->name;
+            $user->first_name = $request->first_name;
+            $user->user_phone = $request->user_phone;
+            $user->email = $request->email;
+            $user->username = $request->username;
+            $user->password = Hash::make($request->password);
+            $user->role = $request->role;
 
             $user->save();
 
@@ -77,21 +77,21 @@ class UsersController extends Controller
                 "status_message" => "L'utilisateur a été créé",
                 "data" => $user
             ]);
-        } catch (\Exception $e) {
+        } catch (HttpResponseException $e) {
             return response()->json($e);
         }
     }
 
-    public function update(UsersFormRequest $request, Users $user)
+    public function update(UsersFormRequest $request, User $user)
     {
         try {
-            $user->name = $request->input('name');
-            $user->first_name = $request->input('first_name');
-            $user->user_phone = $request->input('user_phone');
-            $user->email = $request->input('email');
-            $user->username = $request->input('username');
-            $user->password = Hash::make($request->input('password'));
-            $user->role = $request->input('role');
+            $user->name = $request->name;
+            $user->first_name = $request->first_name;
+            $user->user_phone = $request->user_phone;
+            $user->email = $request->email;
+            $user->username = $request->username;
+            $user->password = Hash::make($request->password);
+            $user->role = $request->role;
 
             $user->save();
             return response()->json([
@@ -100,7 +100,7 @@ class UsersController extends Controller
                 "data" => $user
             ]);
 
-        } catch (\Exception $e) {
+        } catch (HttpResponseException $e) {
             return response()->json($e);
         }
     }
@@ -113,8 +113,9 @@ class UsersController extends Controller
                 "status_code" => 200,
                 "status_message" => "L'utilisateur a été supprimé",
             ]);
-        } catch (\Exception $e) {
+        } catch (HttpResponseException $e) {
             return response()->json($e);
         }
     }
 }
+

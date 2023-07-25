@@ -6,21 +6,9 @@ use \App\Http\Livewire\Admin\Offer\AddOffer;
 use \App\Http\Livewire\Admin\Offer\Myoffers;
 use \App\Http\Livewire\Admin\Offer\OfferDetails;
 use \App\Http\Livewire\Admin\Offer\Offers;
-
-use \App\Http\Livewire\landing\pages\register;
-use \App\Http\Livewire\landing\pages\aboutUs;
-use \App\Http\Livewire\landing\pages\contactUs;
-use \App\Http\Livewire\landing\pages\login;
-use \App\Http\Livewire\landing\landing;
+use App\Http\Livewire\Login;
+use App\Http\Livewire\Register;
 /*
-use \App\Http\Livewire\landing\landing;
-use \App\Http\Livewire\landing\pages\aboutUs;
-use \App\Http\Livewire\landing\pages\contactUs;
-use \App\Http\Livewire\landing\pages\login;
-use \App\Http\Livewire\landing\pages\register;
-
-/*
-
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -32,16 +20,14 @@ use \App\Http\Livewire\landing\pages\register;
 */
 
 
+Route::get('/login', Login::class)->name('login');
 
-Route::get('/contact-us', contactUs::class)->name('contact-us');
-Route::get('/about-us', aboutUs::class)->name('about-us');
-Route::get('/register', register::class)->name('register');
-Route::get('/login', login::class)->name('login');
-Route::get('/', Landing::class)->name('Landing');
 
-//Route::get('/', Dashboards::class)->name('dashboard');
+Route::get('/register', Register::class)->name('register');
+
+
+Route::get('/', Dashboards::class)->name('dashboard');
 Route::get('/add_offer', AddOffer::class)->name('add_offer');
 Route::get('/myoffers', Myoffers::class)->name('myoffers');
 Route::get('/offer_details', OfferDetails::class)->name('offer_details');
 Route::get('/offers', Offers::class)->name('offers');
-
